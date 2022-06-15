@@ -1,10 +1,10 @@
-const {REACT_APP_POKE} = process.env
 import axios from "axios";
+
 
 
  export function getPokemons(){
     return async function (dispatch){
-        var json = await axios.get(REACT_APP_POKE+"/pokemons");
+        var json = await axios.get(`${process.env.REACT_APP_POKE}/pokemons`);
      
         return dispatch ({
             type:"GET_POKEMONS",
@@ -15,7 +15,7 @@ import axios from "axios";
 
 export function getTypes(){
     return async function (dispatch){
-        var json = await axios.get(REACT_APP_POKE + "/types");
+        var json = await axios.get(`${process.env.REACT_APP_POKE}/types`);
         return dispatch ({
             type:"GET_TYPES",
             payload:json.data
@@ -25,7 +25,7 @@ export function getTypes(){
 
 export function getNamePokemons(name){
     return async function (dispatch){
-        var json = await axios.get(`${REACT_APP_POKE}/pokemons?name=${name}`);
+        var json = await axios.get(`${process.env.REACT_APP_POKE}/pokemons?name=${name}`);
         return dispatch ({
             type:"GET_NAME_POKEMONS",
               payload:json.data
@@ -38,7 +38,7 @@ export function getNamePokemons(name){
 
 export function getDetails(id){
     return async function (dispatch){
-        var json = await axios.get(REACT_APP_POKE + "/pokemons/" + id);
+        var json = await axios.get(`${process.env.REACT_APP_POKE}/pokemons/${id}`);
         return dispatch ({
             type:"GET_DETAILS",
             payload:json.data
@@ -56,7 +56,7 @@ export function getDetails(id){
 
 export function postPokemon(payload){
     return async function (dispatch){
-    var respuesta= await axios.post(REACT_APP_POKE +"/pokemon", payload);
+    var respuesta= await axios.post(`${process.env.REACT_APP_POKE}/pokemon`, payload);
     
         return respuesta
  
@@ -111,7 +111,7 @@ export function ordenadoPorAttack(payload){
 
 export function getReset(){
     return async function (dispatch){
-        var json = await axios.get("http://localhost:3001/pokemons");
+        var json = await axios.get(`${process.env.REACT_APP_POKE}/pokemons`);
      
         return dispatch ({
             type:"RESET",
