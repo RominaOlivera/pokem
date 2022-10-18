@@ -22,6 +22,18 @@
 
 }
 
+@media (max-width: 480px) {
+  .fondototal{
+    background-image: url(./3800.png) ; 
+    /* background-position: center center; */
+    /* background-size: cover; */
+ width: 100vw; 
+
+
+    /* width: 70vw; */
+  }
+    
+}
 .fondototal h5{
     display: flex;
     justify-content: flex-end;
